@@ -84,7 +84,7 @@ export default function Home() {
           </div>
 
           <div className={styles.path}>
-            <span className={styles.path_title}>Module Bot</span>
+            <span className={styles.path_title}>Mix Bot</span>
             <p className={styles.path_description}>Code your bot with AI assistance. Write snippets, get real-time completions, and build exactly what you need with our in-browser editor and AI co-pilot.</p>
             <ul className={styles.path_list}>
               <li>Text-to-code AI completion</li>
