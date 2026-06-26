@@ -1,6 +1,7 @@
 import styles from "./page.module.css"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
+import Link from "next/link"
 
 export default function Home() {
   return (
@@ -16,8 +17,8 @@ export default function Home() {
             Deploy instantly.
           </h2>
           <div className={styles.cta_container}>
-            <button className={styles.hero_primary}>Start building free</button>
-            <button className={styles.hero_secondary}>See pricing</button>
+            <Link className={styles.hero_primary} href="/auth">Start building free</Link>
+            <Link className={styles.hero_secondary} href="#pricing">See pricing</Link>
           </div>
         </div>
         
@@ -68,7 +69,7 @@ export default function Home() {
       </section>
       <div className={styles.separator}></div>
       
-      <section className={styles.presentation}>
+      <section className={styles.presentation} id="paths">
         <span className={styles.section_title}>Three paths</span>
         <h1 className={styles.presentation_title}>Pick <span className={styles.text_accent}>your skill</span>, we handle <span className={styles.text_accent}>the rest</span></h1>
         <div className={styles.path_card_container}>
@@ -144,7 +145,7 @@ export default function Home() {
       </section>
       <div className={styles.separator}></div>
       
-      <section className={styles.pricing_section}>
+      <section className={styles.pricing_section} id="pricing">
         <span className={styles.section_title}>Pricing</span>
         <h1 className={styles.presentation_title}>
           Choose <span className={styles.text_accent}>your plan</span>

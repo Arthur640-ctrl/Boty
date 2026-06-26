@@ -47,9 +47,14 @@
   font-family: "font-2";
   border-radius: 5px;
   color: var(--background-1);
-  cursor: not-allowed;
+  cursor: pointer;
   transition: 0.1s;
   font-weight: 900;
+  text-decoration: none;
+}
+
+.hero_primary:hover {
+  border-radius: 10px;
 }
 
 .hero_secondary {
@@ -62,15 +67,13 @@
   cursor: pointer;
   font-weight: 700;
   transition: 0.1s;
+  text-decoration: none;
 }
 
 .hero_secondary:hover {
   background-color: rgba(0, 0, 0, 0.03);
-  border-color: var(--dark-neutral);     
-}
-
-.cta_container button:hover {
-  border-radius: 10px;
+  border-color: var(--dark-neutral);    
+  border-radius: 10px; 
 }
 
 .hero_visual_container {
