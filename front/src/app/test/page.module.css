@@ -1,0 +1,48 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #0f0f0f;
+  color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-bottom: 1px solid #222;
+  background: #111;
+  align-items: center;
+}
+
+.actions button {
+  background: #2d6cdf;
+  border: none;
+  padding: 8px 12px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.editor {
+  flex: 2;
+}
+
+.output {
+  flex: 1;
+  border-left: 1px solid #222;
+  padding: 12px;
+  background: #0b0b0b;
+  overflow: auto;
+}
+
+.output pre {
+  white-space: pre-wrap;
+  color: #aaa;
+}
