@@ -45,8 +45,9 @@
     font-family: "font-1";
     border-radius: 5px;
     color: var(--background-1);
-    cursor: not-allowed;
+    cursor: pointer;
     transition: 0.1s;
+    text-decoration: none;
 }
 
 .btn_primary:hover {

@@ -1,6 +1,7 @@
 import styles from "./page.module.css"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
+import Link from "next/link"
 
 export default function Home() {
   return (
@@ -12,12 +13,12 @@ export default function Home() {
           <h1>Build <span className={styles.text_accent}>Discord bots</span> <br /> in <span className={styles.text_accent}>minutes</span></h1>
           <h2>
             No VPS headaches. No infrastructure pain. No complicated setup. <br /> 
-            Code it yourself or use AI. <br />
+            Code it yourself or use AI on our online code editor. <br />
             Deploy instantly.
           </h2>
           <div className={styles.cta_container}>
-            <button className={styles.hero_primary}>Start building free</button>
-            <button className={styles.hero_secondary}>See pricing</button>
+            <Link className={styles.hero_primary} href="/auth">Start building free</Link>
+            <Link className={styles.hero_secondary} href="#pricing">See pricing</Link>
           </div>
         </div>
         
@@ -68,7 +69,7 @@ export default function Home() {
       </section>
       <div className={styles.separator}></div>
       
-      <section className={styles.presentation}>
+      <section className={styles.presentation} id="paths">
         <span className={styles.section_title}>Three paths</span>
         <h1 className={styles.presentation_title}>Pick <span className={styles.text_accent}>your skill</span>, we handle <span className={styles.text_accent}>the rest</span></h1>
         <div className={styles.path_card_container}>
@@ -144,7 +145,7 @@ export default function Home() {
       </section>
       <div className={styles.separator}></div>
       
-      <section className={styles.pricing_section}>
+      <section className={styles.pricing_section} id="pricing">
         <span className={styles.section_title}>Pricing</span>
         <h1 className={styles.presentation_title}>
           Choose <span className={styles.text_accent}>your plan</span>
@@ -176,6 +177,7 @@ export default function Home() {
               <li>Custom bot code uploads</li>
               <li>Priority email support</li>
               <li>Advanced analytics</li>
+              <li>99% uptime</li>
             </ul>
             <button className={styles.pricing_button}>Start Pro trial</button>
           </article>
@@ -191,6 +193,7 @@ export default function Home() {
               <li>Custom integrations</li>
               <li>Dedicated support channel</li>
               <li>Advanced monitoring & logs</li>
+              <li>99% uptime</li>
             </ul>
             <button className={styles.pricing_button}>Contact sales</button>
           </article>
