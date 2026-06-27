@@ -1,5 +1,18 @@
 services:
   frontend:
+    container_name: boty-frontend
+    image: boty-frontend-image
     build: ./front
     ports:
       - "3000:3000"
+
+  backend:
+    container_name: boty-backend
+    image: boty-backend-image
+    build: ./back
+
+    ports:
+      - "7000:7000"
+
+    env_file:
+      - ./back/.env.local

@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 import styles from "./auth.module.css"
 import Loader from "../components/Loader"
@@ -8,6 +9,8 @@ import Loader from "../components/Loader"
 import { Info, CircleX} from "lucide-react"
 
 export default function Auth() {
+    const router = useRouter()
+
     const [is_login, set_is_login] = useState(false)
     const [is_loading, set_is_loading] = useState(false)
 
@@ -20,6 +23,22 @@ export default function Auth() {
     const [is_popup, set_popup] = useState(false)
     const [is_error, set_is_error] = useState(false)
     const [popup_text, set_popup_text] = useState("") 
+    const [popup_redirection, set_popup_redirection] = useState("none")
+
+    const email_regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    const is_email_valid = email.trim() ? email_regex.test(email.trim()) : false
+
+    const is_submit_disabled = is_login
+        ? !email.trim() || !password || !is_email_valid
+        : !first_name.trim() || !last_name.trim() || !email.trim() || !password || !confirm_password || !is_email_valid
+
+    function handle_popup_continue() {
+        set_popup(false)
+
+        if (popup_redirection !== "none") {
+            router.push(popup_redirection)
+        }
+    }
 
     function handle_auth() {
         if (is_login) {
@@ -39,13 +58,22 @@ export default function Auth() {
             set_is_error(true)
             set_popup_text("The passwords do not match")
             set_popup(true)
+            set_popup_redirection("none")
+            return
+        }
+
+        if (!is_email_valid) {
+            set_is_error(true)
+            set_popup_text("Please enter a correct email")
+            set_popup(true)
+            set_popup_redirection("none")
             return
         }
         
         const credential = {
-            "first_name": first_name,
-            "last_name": last_name,
-            "email": email,
+            "first_name": first_name.trim(),
+            "last_name": last_name.trim(),
+            "email": email.trim().toLowerCase(),
             "password": password
         }
 
@@ -66,21 +94,28 @@ export default function Auth() {
             
             if (!response.ok) {
                 set_is_error(true)
-                set_popup_text(data.message)
+                set_popup_text(data.detail.message)
                 set_popup(true)
+                set_popup_redirection("none")
+                set_is_loading(false)
                 return
+            }
+
+            if (response.ok) {
+                set_is_loading(false)
+                set_is_error(false)
+                set_popup_text("Account created. Thank !")
+                set_popup(true)
+                set_popup_redirection("/")
             }
 
         } catch {
             set_is_error(true)
             set_popup_text("Internal server error")
             set_popup(true)
-            return
-        } finally {
             set_is_loading(false)
-            set_is_error(false)
-            set_popup_text("Account created. Thank !")
-            set_popup(true)
+            set_popup_redirection("none")
+            return
         }
         
 
@@ -115,7 +150,7 @@ export default function Auth() {
                                 <span className={styles.popup_text}>{popup_text}</span>
                             </div>
                         </div>
-                        <button className={styles.popup_button} onClick={() => set_popup(false)}>
+                        <button className={styles.popup_button} onClick={handle_popup_continue}>
                             Continue
                         </button>
                     </div>
@@ -188,7 +223,11 @@ export default function Auth() {
                     />
                     )}
 
-                    <button className={styles.submit} onClick={handle_auth}>
+                    <button
+                        className={styles.submit}
+                        onClick={handle_auth}
+                        disabled={is_submit_disabled}
+                    >
                         {is_login ? "Login" : "Create my account"}
                     </button>
                 </div>

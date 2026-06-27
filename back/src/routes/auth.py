@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException, Request
 from datetime import datetime, timezone
+import re
 import uuid
 from core.limiter import limiter
 
@@ -9,6 +10,7 @@ from core.auth_security import *
 from core.log_events import *
 
 router = APIRouter(prefix="/auth")
+EMAIL_REGEX = re.compile(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
 
 @router.post("/register")
 @limiter.limit("5/minute")
@@ -16,17 +18,29 @@ async def register(request: Request, data: RegisterRequest):
     
     if data.bot:
         await log_event(event_type="REGISTER_FAILED", data={"reason": "bot_detected", "ip": request.client.host})
-        raise HTTPException(400, "Bot detected")
+        raise HTTPException(400, {"message": "Register failed : Bot detected"})
 
     
     first_name = data.first_name
     last_name = data.last_name
-    email = data.email
+    email = str(data.email).strip().lower()
     password = data.password
+
+    if not first_name or not first_name.strip():
+        await log_event(event_type="REGISTER_FAILED", data={"reason": "missing_first_name", "ip": request.client.host})
+        raise HTTPException(400, {"message": "Register failed : First name is required"})
+
+    if not last_name or not last_name.strip():
+        await log_event(event_type="REGISTER_FAILED", data={"reason": "missing_last_name", "ip": request.client.host})
+        raise HTTPException(400, {"message": "Register failed : Last name is required"})
+
+    if not EMAIL_REGEX.fullmatch(email):
+        await log_event(event_type="REGISTER_FAILED", data={"reason": "invalid_email", "ip": request.client.host})
+        raise HTTPException(400, {"message": "Register failed : Invalid email format"})
 
     if await User.find_one({"email": email}):
         await log_event(event_type="REGISTER_FAILED", data={"reason": "email_used", "ip": request.client.host})
-        raise HTTPException(400, "Email already used")
+        raise HTTPException(400, {"message": "Register failed : Email already used"})
     
     hashed_password = hash_password(password)
 

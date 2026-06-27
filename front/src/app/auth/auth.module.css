@@ -124,6 +124,15 @@
   border-radius: 16px;
 }
 
+.submit:disabled {
+  background: #9ca3af;
+  color: #f3f4f6;
+  cursor: not-allowed;
+  transform: none;
+  border-radius: 12px;
+  opacity: 0.8;
+}
+
 .loader {
     position: fixed;
     inset: 0;
