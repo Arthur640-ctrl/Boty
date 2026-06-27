@@ -4,7 +4,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  padding: 24px;
+  box-sizing: border-box;
 }
 
 .card {
@@ -16,6 +17,7 @@
   border-radius: 22px;
   padding: 35px;
   box-shadow: 0 20px 50px rgba(0,0,0,.08);
+  box-sizing: border-box;
 }
 
 .backButton {
@@ -41,6 +43,7 @@
   border-radius: 999px;
   padding: 5px;
   margin-bottom: 35px;
+  width: 100%;
 }
 
 .switch button {
@@ -86,10 +89,12 @@
   font-size: 34px;
   color: var(--dark-neutral);
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .form input {
-  height: 54px;
+  width: 100%;
+  min-height: 54px;
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 0 18px;
@@ -97,6 +102,7 @@
   font-size: 15px;
   background: white;
   transition: .2s;
+  box-sizing: border-box;
 }
 
 .form input:focus {
@@ -107,7 +113,7 @@
 
 .submit {
   margin-top: 10px;
-  height: 54px;
+  min-height: 54px;
   border: none;
   border-radius: 12px;
   background: var(--primary);
@@ -154,6 +160,7 @@
     padding: 24px;
     background: rgba(10, 16, 29, 0.32);
     backdrop-filter: blur(6px);
+    box-sizing: border-box;
 }
 
 .popup_container {
@@ -163,6 +170,7 @@
     border: 1px solid var(--border);
     border-radius: 18px;
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.14);
+    box-sizing: border-box;
 }
 
 .popup_infos {
@@ -223,4 +231,80 @@
 
 .popup_button:hover {
     border-radius: 14px;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 16px;
+    align-items: flex-start;
+    padding-top: 24px;
+  }
+
+  .card {
+    padding: 24px 18px;
+    border-radius: 18px;
+  }
+
+  .backButton {
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+
+  .switch {
+    margin-bottom: 24px;
+  }
+
+  .switch button {
+    height: 44px;
+    font-size: 14px;
+  }
+
+  .form {
+    gap: 14px;
+  }
+
+  .form h1 {
+    font-size: 28px;
+    margin-bottom: 6px;
+  }
+
+  .form input,
+  .submit {
+    min-height: 50px;
+    font-size: 14px;
+  }
+
+  .popup_background {
+    padding: 16px;
+  }
+
+  .popup_container {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 420px) {
+  .page {
+    padding: 12px;
+    padding-top: 16px;
+  }
+
+  .card {
+    padding: 20px 14px;
+  }
+
+  .switch button {
+    height: 42px;
+    font-size: 13px;
+  }
+
+  .form h1 {
+    font-size: 24px;
+  }
+
+  .form input,
+  .submit {
+    min-height: 46px;
+    border-radius: 10px;
+  }
 }
