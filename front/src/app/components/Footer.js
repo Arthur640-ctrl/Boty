@@ -33,7 +33,7 @@ export default function Footer() {
         <div className={styles.footer_column}>
           <span className={styles.footer_title}>SOCIAL</span>
           <div className={styles.footer_links}>
-            <a href="#">Discord</a>
+            <a href="https://discord.gg/5jJp67XcG9">Discord</a>
             <a href="#">Github</a>
           </div>
         </div>

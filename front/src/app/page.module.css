@@ -34,6 +34,27 @@
   color: var(--primary);
 }
 
+.hero_cta_stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.hero_discord_link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "font-2";
+  font-size: 14px;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.hero_discord_link:hover {
+  text-decoration: underline;
+}
+
 .cta_container {
   display: flex;
   justify-content: end;

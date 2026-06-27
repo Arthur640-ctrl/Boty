@@ -19,9 +19,19 @@ export default function Home() {
             Code it yourself or use AI on our online code editor. <br />
             Deploy instantly.
           </h2>
-          <div className={styles.cta_container}>
-            <Link className={styles.hero_primary} href="/auth">Start building free</Link>
-            <Link className={styles.hero_secondary} href="#pricing">See pricing</Link>
+          <div className={styles.hero_cta_stack}>
+            <div className={styles.cta_container}>
+              <Link className={styles.hero_primary} href="/auth">Start building free</Link>
+              <Link className={styles.hero_secondary} href="#pricing">See pricing</Link>
+            </div>
+            <a
+              className={styles.hero_discord_link}
+              href="https://discord.gg/5jJp67XcG9"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Join the Discord community
+            </a>
           </div>
         </div>
         
