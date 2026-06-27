@@ -340,6 +340,7 @@
 
 .path {
   flex: 1 1 0;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
@@ -584,4 +585,105 @@
 .pricing_button:hover {
   transform: translateY(-1px);
   background-color: #6f8cff;
+}
+
+
+@media (max-width: 1000px) {
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 24px 40px;
+    box-sizing: border-box;
+  }
+
+  .hero > div {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    text-align: center;
+    padding: 0;
+  }
+
+  .hero_cta_stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero_visual_container {
+    display: none;
+  }
+
+  .path_card_container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .path {
+    flex: 1 1 auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 650px) {
+  .presentation {
+    padding: 20px 50px;
+  }
+
+  .features {
+    padding: 20px 50px;
+  }
+
+  .pricing_section {
+    padding: 20px 50px;
+  }
+
+  .hero {
+    padding: 90px 20px 40px;
+    min-height: 100vh;
+  }
+
+  .hero_element h1 {
+    font-family: "font-1";
+    font-size: 35px;
+  }
+
+  .hero_element h2 {
+    font-family: "font-2";
+    font-size: 15px;
+    margin-bottom: 30px;
+  }
+
+  .hero_primary {
+    padding: 15px;
+    font-weight: 700;
+  }
+
+  .hero_secondary {
+    padding: 15px;
+    font-weight: 700;
+  }
+
+  .hero_element {
+    margin-top: 0;
+    width: 100%;
+    height: auto;
+    padding: 0;
+  }
+
+  .hero_visual_container {
+    width: 0;
+    height: 0;
+    padding: 0;
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+
 }

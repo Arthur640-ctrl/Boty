@@ -19,7 +19,7 @@ export default function Header() {
             <a href="#paths">Features</a>
             <a href="">Pricing</a>
         </div>
-        <div>
+        <div className={styles.cta_container}>
             <Link className={styles.btn_primary} href="/auth">START NOW</Link>
         </div>
     </nav>
