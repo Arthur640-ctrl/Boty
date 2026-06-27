@@ -13,7 +13,7 @@ export default function Home() {
           <h1>Build <span className={styles.text_accent}>Discord bots</span> <br /> in <span className={styles.text_accent}>minutes</span></h1>
           <h2>
             No VPS headaches. No infrastructure pain. No complicated setup. <br /> 
-            Code it yourself or use AI. <br />
+            Code it yourself or use AI on our online code editor. <br />
             Deploy instantly.
           </h2>
           <div className={styles.cta_container}>
@@ -177,6 +177,7 @@ export default function Home() {
               <li>Custom bot code uploads</li>
               <li>Priority email support</li>
               <li>Advanced analytics</li>
+              <li>99% uptime</li>
             </ul>
             <button className={styles.pricing_button}>Start Pro trial</button>
           </article>
@@ -192,6 +193,7 @@ export default function Home() {
               <li>Custom integrations</li>
               <li>Dedicated support channel</li>
               <li>Advanced monitoring & logs</li>
+              <li>99% uptime</li>
             </ul>
             <button className={styles.pricing_button}>Contact sales</button>
           </article>

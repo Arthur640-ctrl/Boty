@@ -6,6 +6,9 @@ services:
     ports:
       - "3000:3000"
 
+    env_file:
+      - ./front/.env.production
+
   backend:
     container_name: boty-backend
     image: boty-backend-image
@@ -15,4 +18,4 @@ services:
       - "7000:7000"
 
     env_file:
-      - ./back/.env.local
+      - ./back/.env.production
