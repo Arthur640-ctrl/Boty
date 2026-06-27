@@ -10,7 +10,10 @@ export default function Home() {
 
       <section className={styles.hero}>
         <div className={styles.hero_element}>
-          <h1>Build <span className={styles.text_accent}>Discord bots</span> <br /> in <span className={styles.text_accent}>minutes</span></h1>
+          <h1>
+            <span className={styles.text_accent}>Build</span> and <span className={styles.text_accent}>host</span> <br />
+            Discord <span className={styles.text_accent}>bots</span> <br />
+            <span className={styles.text_accent}>easily</span></h1>
           <h2>
             No VPS headaches. No infrastructure pain. No complicated setup. <br /> 
             Code it yourself or use AI on our online code editor. <br />
@@ -189,8 +192,6 @@ export default function Home() {
             <p className={styles.pricing_desc}>Scale without limits.</p>
             <ul className={styles.pricing_feature_list}>
               <li>Unlimited active bots</li>
-              <li>Team workspace & collaboration</li>
-              <li>Custom integrations</li>
               <li>Dedicated support channel</li>
               <li>Advanced monitoring & logs</li>
               <li>99% uptime</li>
