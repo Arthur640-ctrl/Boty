@@ -109,14 +109,15 @@ export default function Auth() {
                 set_popup_redirection("/")
             }
 
-        } catch {
-            set_is_error(true)
-            set_popup_text("Internal server error")
-            set_popup(true)
-            set_is_loading(false)
-            set_popup_redirection("none")
-            return
-        }
+        } catch (err) {
+            console.error(err);
+
+            set_is_error(true);
+            set_popup_text(err instanceof Error ? err.message : String(err));
+            set_popup(true);
+            set_is_loading(false);
+            set_popup_redirection("none");
+}
         
 
     }
