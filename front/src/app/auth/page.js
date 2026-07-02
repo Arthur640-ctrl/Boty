@@ -117,7 +117,9 @@ export default function Auth() {
             set_popup(true);
             set_is_loading(false);
             set_popup_redirection("none");
-}
+
+           alert(API_URL)
+        }
         
 
     }
